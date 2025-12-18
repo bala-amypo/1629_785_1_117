@@ -19,9 +19,8 @@ private String role;
 private String status;
 private LocalDateTime createdAt;
 
-public UserAccount(){
+public UserAccount(){}
 
-}
 public Long getId(){
     return id;
 }
@@ -58,6 +57,12 @@ public String getRole(){
 public void setRole(String role){
     this.role=role;
 }
-public void
+public String setStatus(){
+    return status;
+}
+public void getStatus(String status){
+    this.status=status;
+}
+public Date getCreateda
 
 }
