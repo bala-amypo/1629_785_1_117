@@ -18,17 +18,17 @@ public class LoginEvent {
     private Long userId;
     private String ipAddress;
     private String loginStatus;
-    private LocalDateTime loginTime;
+    private LocalDateTime timestamp;
 
     public LoginEvent() {
     }
 
-    public LoginEvent(Long id, Long userId, String ipAddress, String loginStatus, LocalDateTime loginTime) {
+    public LoginEvent(Long id, Long userId, String ipAddress, String loginStatus, LocalDateTime timestamp) {
         this.id = id;
         this.userId = userId;
         this.ipAddress = ipAddress;
         this.loginStatus = loginStatus;
-        this.loginTime = loginTime;
+        this.timestamp = timestamp;
     }
 
     public Long getId() {
@@ -63,11 +63,11 @@ public class LoginEvent {
         this.loginStatus = loginStatus;
     }
 
-    public LocalDateTime getLoginTime() {
-        return loginTime;
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 
-    public void setLoginTime(LocalDateTime loginTime) {
-        this.loginTime = loginTime;
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 }
