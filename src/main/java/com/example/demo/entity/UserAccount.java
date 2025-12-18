@@ -18,4 +18,18 @@ private String passsword;
 private String role;
 private String status;
 private LocalDateTime createdAt;
+
+public UserAccount(){
+
+}
+public Long getId(){
+    return id;
+}
+public void setId(Long id){
+    this.id=id;
+}
+public String getEmployeeId(){
+    return employeeId;
+}
+public void
 }
