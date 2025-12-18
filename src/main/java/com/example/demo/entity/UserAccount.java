@@ -40,6 +40,24 @@ public String getUsername(){
 public void setUsername(String Username){
     this.username=username;
 }
-public 
+public String getEmail(){
+    return email;
+}
+public void setEmail(String email){
+    this.email=email;
+}
+public String getPassword(){
+    return password;
+}
+public void SetPassword(String password){
+    this.password=password;
+}
+public String getRole(){
+    return role;
+}
+public void setRole(String role){
+    this.role=role;
+}
+public void
 
 }
