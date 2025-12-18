@@ -31,5 +31,15 @@ public void setId(Long id){
 public String getEmployeeId(){
     return employeeId;
 }
-public void
+public void setEmployeeId(String employeeId){
+    this.employeeId=employeeId;
+}
+public String getUsername(){
+  return username;
+}
+public void setUsername(String Username){
+    this.username=username;
+}
+public 
+
 }
