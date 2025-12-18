@@ -1,37 +1,4 @@
-package com.example.demo.entity
-// package com.example.demo.entity;
-
-import java.time.LocalDateTime;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class LoginEvent {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private Long userId;
-    private String ipAddress;
-    private String loginStatus;
-    private LocalDateTime timestamp;
-
-    public LoginEvent() {
-    }
-
-    public LoginEvent(Long id, Long userId, String ipAddress, String loginStatus, LocalDateTime timestamp) {
-        this.id = id;
-        this.userId = userId;
-        this.ipAddress = ipAddress;
-        this.loginStatus = loginStatus;
-        this.timestamp = timestamp;
-    }
-
-    public Long getId() {
+public Long getId() {
         return id;
     }
 
@@ -70,4 +37,4 @@ public class LoginEvent {
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
-}
+    }
