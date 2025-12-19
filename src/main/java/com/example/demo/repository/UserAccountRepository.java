@@ -1,1 +1,3 @@
-package com.example.demo.repository
+package com.example.demo.repository;
+
+public interface UserAccountRepository extends
