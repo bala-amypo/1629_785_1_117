@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface UserAccountRepository extends JpaRepository<UserAccount,long>{
 
-Optional<UserAccount>findByUsername(String username);
-Optional<UserAccount>findByEmail(String Email);
+Optional<UserAccount>findByUsername(String username);  //unique username
+Optional<UserAccount>findByEmail(String Email);        //unique email
 
 }
