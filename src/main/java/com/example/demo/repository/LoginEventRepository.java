@@ -1,7 +1,7 @@
 package com.example.demo.repository
 
 import com.example.demo.entity.LoginEvent;
-import org.sprinframework.data.Jpa.repository.JpaRepository;
+import org.sprinframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 
