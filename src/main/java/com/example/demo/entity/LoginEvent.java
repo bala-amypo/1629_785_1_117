@@ -21,19 +21,6 @@ public class LoginEvent {
     private LocalDateTime timestamp;
     private String loginStatus;
 
-    public LoginEvent() {}
-
-    public LoginEvent(Long id, Long userId, String ipAddress, String location,
-                      String deviceId, LocalDateTime timestamp, String loginStatus) {
-        this.id = id;
-        this.userId = userId;
-        this.ipAddress = ipAddress;
-        this.location = location;
-        this.deviceId = deviceId;
-        this.timestamp = timestamp;
-        this.loginStatus = loginStatus;
-    }
-
     public Long getId() {
         return id;
     }
@@ -89,4 +76,17 @@ public class LoginEvent {
     public void setLoginStatus(String loginStatus) {
         this.loginStatus = loginStatus;
     }
+        public LoginEvent() {}
+
+    public LoginEvent(Long id, Long userId, String ipAddress, String location,
+                      String deviceId, LocalDateTime timestamp, String loginStatus) {
+        this.id = id;
+        this.userId = userId;
+        this.ipAddress = ipAddress;
+        this.location = location;
+        this.deviceId = deviceId;
+        this.timestamp = timestamp;
+        this.loginStatus = loginStatus;
+    }
+
 }
