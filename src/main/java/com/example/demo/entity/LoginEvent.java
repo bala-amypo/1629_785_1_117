@@ -1,32 +1,3 @@
-// package com.example.demo.entity;
-
-// import jakarta.persistence.*;
-// import lombok.*;
-// import java.time.LocalDateTime;
-
-// @Entity
-// @Data
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Table(name = "login_events")
-// public class LoginEvent {
-
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     private Long id;
-
-//     private Long userId;
-//     private String ipAddress;
-//     private String location;
-//     private String deviceId;
-//     private LocalDateTime timestamp;
-//     private String loginStatus;
-
-//     @PrePersist
-//     protected void onCreate() {
-//         this.timestamp = LocalDateTime.now();
-//     }
-// }
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
@@ -47,15 +18,13 @@ public class LoginEvent {
 
     private String deviceId;
 
-    private String loginStatus;   // SUCCESS / FAILED
+    private String loginStatus;   
 
     private LocalDateTime timestamp;
 
-    // 🔹 Mandatory no-arg constructor
     public LoginEvent() {
     }
 
-    // 🔹 Optional parameterized constructor
     public LoginEvent(Long userId, String ipAddress, String location,
                       String deviceId, String loginStatus) {
         this.userId = userId;
@@ -66,7 +35,7 @@ public class LoginEvent {
         this.timestamp = LocalDateTime.now();
     }
 
-    // 🔹 Getters & Setters
+    
     public Long getId() {
         return id;
     }
