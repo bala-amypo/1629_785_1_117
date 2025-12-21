@@ -1,112 +1,112 @@
-package com.example.demo.entity;
+// package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
 
-import java.time.LocalDateTime;
+// import java.time.LocalDateTime;
 
-@Entity
-public class ViolationRecord {
+// @Entity
+// public class ViolationRecord {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//     @Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     private Long id;
 
-    private Long userId;
-    private Long policyRuleId;
-    private Long eventId;
-    private String violationType;
-    private String details;
-    private String severity;
-    private LocalDateTime detectedAt;
-    private Boolean resolved;
+//     private Long userId;
+//     private Long policyRuleId;
+//     private Long eventId;
+//     private String violationType;
+//     private String details;
+//     private String severity;
+//     private LocalDateTime detectedAt;
+//     private Boolean resolved;
 
-    public Long getId() {
-        return id;
-    }
+//     public Long getId() {
+//         return id;
+//     }
  
-    public void setId(Long id) {
-        this.id = id;
-    }
+//     public void setId(Long id) {
+//         this.id = id;
+//     }
  
-    public Long getUserId() {
-        return userId;
-    }
+//     public Long getUserId() {
+//         return userId;
+//     }
  
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+//     public void setUserId(Long userId) {
+//         this.userId = userId;
+//     }
  
-    public Long getPolicyRuleId() {
-        return policyRuleId;
-    }
+//     public Long getPolicyRuleId() {
+//         return policyRuleId;
+//     }
  
-    public void setPolicyRuleId(Long policyRuleId) {
-        this.policyRuleId = policyRuleId;
-    }
+//     public void setPolicyRuleId(Long policyRuleId) {
+//         this.policyRuleId = policyRuleId;
+//     }
  
-    public Long getEventId() {
-        return eventId;
-    }
+//     public Long getEventId() {
+//         return eventId;
+//     }
  
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
-    }
+//     public void setEventId(Long eventId) {
+//         this.eventId = eventId;
+//     }
  
-    public String getViolationType() {
-        return violationType;
-    }
+//     public String getViolationType() {
+//         return violationType;
+//     }
  
-    public void setViolationType(String violationType) {
-        this.violationType = violationType;
-    }
+//     public void setViolationType(String violationType) {
+//         this.violationType = violationType;
+//     }
  
-    public String getDetails() {
-        return details;
-    }
+//     public String getDetails() {
+//         return details;
+//     }
  
-    public void setDetails(String details) {
-        this.details = details;
-    }
+//     public void setDetails(String details) {
+//         this.details = details;
+//     }
  
-    public String getSeverity() {
-        return severity;
-    }
+//     public String getSeverity() {
+//         return severity;
+//     }
  
-    public void setSeverity(String severity) {
-        this.severity = severity;
-    }
+//     public void setSeverity(String severity) {
+//         this.severity = severity;
+//     }
  
-    public LocalDateTime getDetectedAt() {
-        return detectedAt;
-    }
+//     public LocalDateTime getDetectedAt() {
+//         return detectedAt;
+//     }
  
-    public void setDetectedAt(LocalDateTime detectedAt) {
-        this.detectedAt = detectedAt;
-    }
+//     public void setDetectedAt(LocalDateTime detectedAt) {
+//         this.detectedAt = detectedAt;
+//     }
  
-    public Boolean getResolved() {
-        return resolved;
-    }
+//     public Boolean getResolved() {
+//         return resolved;
+//     }
  
-    public void setResolved(Boolean resolved) {
-        this.resolved = resolved;
-    }
-    public ViolationRecord() {}
+//     public void setResolved(Boolean resolved) {
+//         this.resolved = resolved;
+//     }
+//     public ViolationRecord() {}
 
-    public ViolationRecord(Long id, Long userId, Long policyRuleId, Long eventId,
-                           String violationType, String details, String severity,
-                           LocalDateTime detectedAt, Boolean resolved) {
-        this.id = id;
-        this.userId = userId;
-        this.policyRuleId = policyRuleId;
-        this.eventId = eventId;
-        this.violationType = violationType;
-        this.details = details;
-        this.severity = severity;
-        this.detectedAt = detectedAt;
-        this.resolved = resolved;
-    }
-}
+//     public ViolationRecord(Long id, Long userId, Long policyRuleId, Long eventId,
+//                            String violationType, String details, String severity,
+//                            LocalDateTime detectedAt, Boolean resolved) {
+//         this.id = id;
+//         this.userId = userId;
+//         this.policyRuleId = policyRuleId;
+//         this.eventId = eventId;
+//         this.violationType = violationType;
+//         this.details = details;
+//         this.severity = severity;
+//         this.detectedAt = detectedAt;
+//         this.resolved = resolved;
+//     }
+// }
