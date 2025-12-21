@@ -1,14 +1,14 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.example.demo.entity.LoginEvent;
 import com.example.demo.service.LoginEventService;
 
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/login-events")
+@RequestMapping("/api/logins")
 public class LoginEventController {
 
     private final LoginEventService loginEventService;
@@ -17,23 +17,23 @@ public class LoginEventController {
         this.loginEventService = loginEventService;
     }
 
-    @PostMapping
-    public LoginEvent logLoginEvent(@RequestBody LoginEvent event) {
-        return loginEventService.logLoginEvent(event);
-    }
-
-    @GetMapping("/{id}")
-    public LoginEvent getLoginEventById(@PathVariable Long id) {
-        return loginEventService.getLoginEventById(id);
-    }
-
-    @GetMapping
-    public List<LoginEvent> getAllLoginEvents() {
-        return loginEventService.getAllLoginEvents();
+    @PostMapping("/record")
+    public LoginEvent recordLogin(@RequestBody LoginEvent event) {
+        return loginEventService.recordLogin(event);
     }
 
     @GetMapping("/user/{userId}")
-    public List<LoginEvent> getLoginEventsByUserId(@PathVariable Long userId) {
-        return loginEventService.getLoginEventsByUserId(userId);
+    public List<LoginEvent> getByUser(@PathVariable Long userId) {
+        return loginEventService.getEventsByUser(userId);
+    }
+
+    @GetMapping("/suspicious/{userId}")
+    public List<LoginEvent> getSuspicious(@PathVariable Long userId) {
+        return loginEventService.getSuspiciousLogins(userId);
+    }
+
+    @GetMapping
+    public List<LoginEvent> getAll() {
+        return loginEventService.getAllEvents();
     }
 }
