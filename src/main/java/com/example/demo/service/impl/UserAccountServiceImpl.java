@@ -1,63 +1,63 @@
-// package com.example.demo.service.impl;
+package com.example.demo.service.impl;
 
-// import java.time.LocalDateTime;
-// import java.util.List;
-// import java.util.Optional;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
-// import org.springframework.security.crypto.password.PasswordEncoder;
-// import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
-// import com.example.demo.entity.UserAccount;
-// import com.example.demo.repository.UserAccountRepository;
-// import com.example.demo.service.UserAccountService;
+import com.example.demo.entity.UserAccount;
+import com.example.demo.repository.UserAccountRepository;
+import com.example.demo.service.UserAccountService;
 
-// @Service
-// public class UserAccountServiceImpl implements UserAccountService {
+@Service
+public class UserAccountServiceImpl implements UserAccountService {
 
-//     private final UserAccountRepository userRepo;
-//     private final PasswordEncoder passwordEncoder;
+    private UserAccountRepository userRepo;
+    private PasswordEncoder passwordEncoder;
 
-//     public UserAccountServiceImpl(
-//             UserAccountRepository userRepo,
-//             PasswordEncoder passwordEncoder) {
-//         this.userRepo = userRepo;
-//         this.passwordEncoder = passwordEncoder;
-//     }
+    public UserAccountServiceImpl(UserAccountRepository userRepo,PasswordEncoder passwordEncoder) {
+        this.userRepo = userRepo;
+        this.passwordEncoder = passwordEncoder;
+    }
 
-//     @Override
-//     public UserAccount createUser(UserAccount user) {
-//         user.setPassword(passwordEncoder.encode(user.getPassword()));
+    @Override
+    public UserAccount createUser(UserAccount user) {
 
-//         if (user.getStatus() == null) {
-//             user.setStatus("ACTIVE");
-//         }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-//         user.setCreatedAt(LocalDateTime.now());
-//         return userRepo.save(user);
-//     }
+        if (user.getStatus() == null) {
+            user.setStatus("ACTIVE");
+        }
 
-//     @Override
-//     public UserAccount getUserById(Long id) {
-//         return userRepo.findById(id).orElse(null);
-//     }
+        user.setCreatedAt(LocalDateTime.now());
 
-//     @Override
-//     public UserAccount updateUserStatus(Long id, String status) {
-//         UserAccount user = userRepo.findById(id).orElse(null);
-//         if (user != null) {
-//             user.setStatus(status);
-//             return userRepo.save(user);
-//         }
-//         return null;
-//     }
+        return userRepo.save(user);
+    }
 
-//     @Override
-//     public List<UserAccount> getAllUsers() {
-//         return userRepo.findAll();
-//     }
+    @Override
+    public UserAccount getUserById(Long id) {
+        return userRepo.findById(id).orElse(null);
+    }
 
-//     @Override
-//     public Optional<UserAccount> findByUsername(String username) {
-//         return userRepo.findByUsername(username);
-//     }
-// }
+    @Override
+    public UserAccount updateUserStatus(Long id, String status) {
+        UserAccount user = userRepo.findById(id).orElse(null);
+        if (user != null) {
+            user.setStatus(status);
+            return userRepo.save(user);
+        }
+        return null;
+    }
+
+    @Override
+    public List<UserAccount> getAllUsers() {
+        return userRepo.findAll();
+    }
+
+    @Override
+    public Optional<UserAccount> findByUsername(String username) {
+        return userRepo.findByUsername(username);
+    }
+}

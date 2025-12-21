@@ -1,39 +1,40 @@
-// package com.example.demo.controller;
+package com.example.demo.controller;
 
-// import java.util.List;
+import java.util.List;
 
-// import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*;
 
-// import com.example.demo.entity.UserAccount;
-// import com.example.demo.service.UserAccountService;
-// // 
-// @RestController
-// @RequestMapping("/api/users")
-// public class UserAccountController {
+import com.example.demo.entity.UserAccount;
+import com.example.demo.service.UserAccountService;
 
-//     private UserAccountService service;
-// // 
-//     public UserAccountController(UserAccountService service) {
-//         this.service = service;
-//     }
+@RestController
+@RequestMapping("/api/users")
+public class UserAccountController {
 
-//     @PostMapping
-//     public UserAccount createUser(@RequestBody UserAccount user) {
-//         return service.createUser(user);
-//     }
+    private UserAccountService service;
 
-//     @GetMapping("/{id}")
-//     public UserAccount getUser(@PathVariable Long id) {
-//         return service.getUserById(id);
-//     }
+    public UserAccountController(UserAccountService service) {
+        this.service = service;
+    }
 
-//     @PutMapping("/{id}/status")
-//     public UserAccount updateStatus(@PathVariable Long id,@RequestParam String status) {
-//         return service.updateUserStatus(id, status);
-//     }
+    @PostMapping
+    public UserAccount createUser(@RequestBody UserAccount user) {
+        return service.createUser(user);
+    }
 
-//     @GetMapping
-//     public List<UserAccount> getAllUsers() {
-//         return service.getAllUsers();
-//     }
-// }
+    @GetMapping("/{id}")
+    public UserAccount getUser(@PathVariable Long id) {
+        return service.getUserById(id);
+    }
+
+    @PutMapping("/{id}/status")
+    public UserAccount updateStatus(@PathVariable Long id,
+                                    @RequestParam String status) {
+        return service.updateUserStatus(id, status);
+    }
+
+    @GetMapping
+    public List<UserAccount> getAllUsers() {
+        return service.getAllUsers();
+    }
+}
