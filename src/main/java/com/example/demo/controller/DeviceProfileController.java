@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping("/api/devices")
 public class DeviceProfileController {
 
-    private final DeviceProfileService service;
+    private DeviceProfileService service;
 
     public DeviceProfileController(DeviceProfileService service) {
         this.service = service;
