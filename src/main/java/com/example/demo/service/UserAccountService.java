@@ -1,16 +1,16 @@
-// package com.example.demo.service
+package com.example.demo.service
 
-// import com.example.demo.entity.UserAccount;
+import com.example.demo.entity.UserAccount;
 
-// import java.util.List;
-// import java.util.Optional;
+import java.util.List;
+import java.util.Optional;
 
-// public interface UserAccountService{
+public interface UserAccountService{
 
-//     UserAccount createUser(UsetAccount user);
-//     UserAccount getUserById(Long,id);
-//     UserAccount UpdateUserStatus(Long id,String status);
-//     List<UserAccount>getAllUsers();
-//     Optional<UserAccount>findByUserName(String username);
+    UserAccount createUser(UsetAccount user);
+    UserAccount getUserById(Long,id);
+    UserAccount UpdateUserStatus(Long id,String status);
+    List<UserAccount>getAllUsers();
+    Optional<UserAccount>findByUserName(String username);
 
-// }
+}
