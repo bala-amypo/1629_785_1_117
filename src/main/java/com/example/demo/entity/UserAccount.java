@@ -1,7 +1,8 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok
 import java.time.LocalDateTime;
 
 @Entity
