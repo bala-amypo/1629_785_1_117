@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class LoginEventServiceImpl implements LoginEventService {
 
-    private final LoginEventRepository loginEventRepository;
+    private LoginEventRepository loginEventRepository;
 
     public LoginEventServiceImpl(LoginEventRepository loginEventRepository) {
         this.loginEventRepository = loginEventRepository;
