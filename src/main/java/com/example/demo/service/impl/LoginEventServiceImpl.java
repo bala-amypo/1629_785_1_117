@@ -1,38 +1,38 @@
-package com.example.demo.service.impl;
+// package com.example.demo.service.impl;
 
-import com.example.demo.entity.LoginEvent;
-import com.example.demo.repository.LoginEventRepository;
-import com.example.demo.service.LoginEventService;
-import org.springframework.stereotype.Service;
+// import com.example.demo.entity.LoginEvent;
+// import com.example.demo.repository.LoginEventRepository;
+// import com.example.demo.service.LoginEventService;
+// import org.springframework.stereotype.Service;
 
-import java.util.List;
+// import java.util.List;
 
-@Service
-public class LoginEventServiceImpl implements LoginEventService {
+// @Service
+// public class LoginEventServiceImpl implements LoginEventService {
 
-    private final LoginEventRepository loginEventRepository;
+//     private final LoginEventRepository loginEventRepository;
 
-    public LoginEventServiceImpl(LoginEventRepository loginEventRepository) {
-        this.loginEventRepository = loginEventRepository;
-    }
+//     public LoginEventServiceImpl(LoginEventRepository loginEventRepository) {
+//         this.loginEventRepository = loginEventRepository;
+//     }
 
-    @Override
-    public void logLoginEvent(LoginEvent event) {
-        loginEventRepository.save(event);
-    }
+//     @Override
+//     public void logLoginEvent(LoginEvent event) {
+//         loginEventRepository.save(event);
+//     }
 
-    @Override
-    public LoginEvent getLoginEventById(Long id) {
-        return loginEventRepository.findById(id).orElse(null);
-    }
+//     @Override
+//     public LoginEvent getLoginEventById(Long id) {
+//         return loginEventRepository.findById(id).orElse(null);
+//     }
 
-    @Override
-    public List<LoginEvent> getAllLoginEvents() {
-        return loginEventRepository.findAll();
-    }
+//     @Override
+//     public List<LoginEvent> getAllLoginEvents() {
+//         return loginEventRepository.findAll();
+//     }
 
-    @Override
-    public List<LoginEvent> getLoginEventsByUserId(Long userId) {
-        return loginEventRepository.findByUserId(userId);
-    }
-}
+//     @Override
+//     public List<LoginEvent> getLoginEventsByUserId(Long userId) {
+//         return loginEventRepository.findByUserId(userId);
+//     }
+// }
