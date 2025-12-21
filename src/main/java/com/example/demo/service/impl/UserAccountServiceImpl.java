@@ -14,7 +14,7 @@ import com.example.demo.exception.BadRequestException;
 @Service
 public class UserAccountServiceImpl implements UserAccountService {
 
-    private final UserAccountRepository userRepo;
+    private UserAccountRepository userRepo;
 
     public UserAccountServiceImpl(UserAccountRepository userRepo) {
         this.userRepo = userRepo;
