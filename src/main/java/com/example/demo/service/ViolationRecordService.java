@@ -1,14 +1,47 @@
-// package com.example.demo.service;
+package com.example.demo.service.impl;
 
-// import com.example.demo.entity.ViolationRecord;
+import com.example.demo.entity.ViolationRecord;
+import com.example.demo.repository.ViolationRecordRepository;
+import com.example.demo.service.ViolationRecordService;
+import com.example.demo.exception.BadRequestException;
+import org.springframework.stereotype.Service;
 
-// import java.util.List;
+import java.util.List;
 
-// public interface ViolationRecordService {
+@Service
+public class ViolationRecordServiceImpl implements ViolationRecordService {
 
-//     ViolationRecord logViolation(ViolationRecord violation);
-//     List<ViolationRecord> getViolationsByUser(Long userId);
-//     ViolationRecord markResolved(Long id);
-//     List<ViolationRecord> getUnresolvedViolations();
-//     List<ViolationRecord> getAllViolations();
-// }
+    private final ViolationRecordRepository violationRepo;
+
+    public ViolationRecordServiceImpl(ViolationRecordRepository violationRepo) {
+        this.violationRepo = violationRepo;
+    }
+
+    @Override
+    public ViolationRecord logViolation(ViolationRecord violation) {
+        return violationRepo.save(violation);
+    }
+
+    @Override
+    public List<ViolationRecord> getViolationsByUser(Long userId) {
+        return violationRepo.findByUserId(userId);
+    }
+
+    @Override
+    public ViolationRecord markResolved(Long id) {
+        ViolationRecord record = violationRepo.findById(id)
+                .orElseThrow(() -> new BadRequestException("Violation not found"));
+        record.setResolved(true);
+        return violationRepo.save(record);
+    }
+
+    @Override
+    public List<ViolationRecord> getUnresolvedViolations() {
+        return violationRepo.findByResolvedFalse();
+    }
+
+    @Override
+    public List<ViolationRecord> getAllViolations() {
+        return violationRepo.findAll();
+    }
+}
