@@ -1,14 +1,14 @@
-package com.example.demo.repository
+// package com.example.demo.repository
 
-import com.example.demo.entity.LoginEvent;
-import org.sprinframework.data.jpa.repository.JpaRepository;
-import java.util.List;
+// import com.example.demo.entity.LoginEvent;
+// import org.sprinframework.data.jpa.repository.JpaRepository;
+// import java.util.List;
 
 
-public interface LoginEventRepository extends JpaRepository<LoginEvent,Long>{
+// public interface LoginEventRepository extends JpaRepository<LoginEvent,Long>{
 
-   List<LoginEvent>findByUserId(Londg userId);
-   List<LoginEvent>findByUserIdAndLoginStatus(Long userId,String loginStatus);
+//    List<LoginEvent>findByUserId(Londg userId);
+//    List<LoginEvent>findByUserIdAndLoginStatus(Long userId,String loginStatus);
 
-}
+// }
  
