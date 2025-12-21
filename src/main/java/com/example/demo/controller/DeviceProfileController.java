@@ -1,39 +1,39 @@
-// package com.example.demo.controller;
+package com.example.demo.controller;
 
-// import com.example.demo.entity.DeviceProfile;
-// import com.example.demo.service.DeviceProfileService;
-// import org.springframework.web.bind.annotation.*;
+import com.example.demo.entity.DeviceProfile;
+import com.example.demo.service.DeviceProfileService;
+import org.springframework.web.bind.annotation.*;
 
-// import java.util.List;
+import java.util.List;
 
-// @RestController
-// @RequestMapping("/api/devices")
-// public class DeviceProfileController {
+@RestController
+@RequestMapping("/api/devices")
+public class DeviceProfileController {
 
-//     private DeviceProfileService service;
+    private DeviceProfileService service;
 
-//     public DeviceProfileController(DeviceProfileService service) {
-//         this.service = service;
-//     }
+    public DeviceProfileController(DeviceProfileService service) {
+        this.service = service;
+    }
 
-//     @PostMapping("/")
-//     public DeviceProfile register(@RequestBody DeviceProfile device) {
-//         return service.registerDevice(device);
-//     }
+    @PostMapping("/")
+    public DeviceProfile register(@RequestBody DeviceProfile device) {
+        return service.registerDevice(device);
+    }
 
-//     @PutMapping("/{id}/trust")
-//     public DeviceProfile trust(@PathVariable Long id,
-//                                @RequestParam boolean trust) {
-//         return service.updateTrustStatus(id, trust);
-//     }
+    @PutMapping("/{id}/trust")
+    public DeviceProfile trust(@PathVariable Long id,
+                               @RequestParam boolean trust) {
+        return service.updateTrustStatus(id, trust);
+    }
 
-//     @GetMapping("/user/{userId}")
-//     public List<DeviceProfile> byUser(@PathVariable Long userId) {
-//         return service.getDevicesByUser(userId);
-//     }
+    @GetMapping("/user/{userId}")
+    public List<DeviceProfile> byUser(@PathVariable Long userId) {
+        return service.getDevicesByUser(userId);
+    }
 
-//     @GetMapping("/lookup/{deviceId}")
-//     public DeviceProfile lookup(@PathVariable String deviceId) {
-//         return service.findByDeviceId(deviceId).orElse(null);
-//     }
-// }
+    @GetMapping("/lookup/{deviceId}")
+    public DeviceProfile lookup(@PathVariable String deviceId) {
+        return service.findByDeviceId(deviceId).orElse(null);
+    }
+}
