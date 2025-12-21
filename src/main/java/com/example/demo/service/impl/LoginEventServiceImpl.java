@@ -1,13 +1,11 @@
 package com.example.demo.service.impl;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import com.example.demo.entity.LoginEvent;
 import com.example.demo.repository.LoginEventRepository;
 import com.example.demo.service.LoginEventService;
-import com.example.demo.exception.ResourceNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LoginEventServiceImpl implements LoginEventService {
@@ -19,15 +17,13 @@ public class LoginEventServiceImpl implements LoginEventService {
     }
 
     @Override
-    public LoginEvent logLoginEvent(LoginEvent event) {
-        return loginEventRepository.save(event);
+    public void logLoginEvent(LoginEvent event) {
+        loginEventRepository.save(event);
     }
 
     @Override
     public LoginEvent getLoginEventById(Long id) {
-        return loginEventRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Login event not found"));
+        return loginEventRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -37,11 +33,6 @@ public class LoginEventServiceImpl implements LoginEventService {
 
     @Override
     public List<LoginEvent> getLoginEventsByUserId(Long userId) {
-        List<LoginEvent> events = loginEventRepository.findByUserId(userId);
-
-        if (events.isEmpty()) {
-            throw new ResourceNotFoundException("No login events found for user");
-        }
-        return events;
+        return loginEventRepository.findByUserId(userId);
     }
 }
