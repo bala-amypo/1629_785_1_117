@@ -18,7 +18,7 @@ public class DeviceProfile {
     private Long id;
 
     private Long userId;
-    @NotBlank(message = "deviceId cannot be empty")
+    // @NotBlank(message = "deviceId cannot be empty")
     private String deviceId;
     private String deviceType;
     private String osVersion;
