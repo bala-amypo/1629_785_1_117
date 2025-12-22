@@ -25,8 +25,7 @@ public class LoginEvent {
     public LoginEvent() {
     }
 
-    public LoginEvent(Long userId, String ipAddress, String location,
-                      String deviceId, String loginStatus) {
+    public LoginEvent(Long userId, String ipAddress, String location,String deviceId, String loginStatus) {
         this.userId = userId;
         this.ipAddress = ipAddress;
         this.location = location;

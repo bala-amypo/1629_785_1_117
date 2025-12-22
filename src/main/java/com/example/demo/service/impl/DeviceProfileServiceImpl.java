@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class DeviceProfileServiceImpl implements DeviceProfileService {
 
-    private final DeviceProfileRepository deviceRepo;
+    private DeviceProfileRepository deviceRepo;
 
     public DeviceProfileServiceImpl(DeviceProfileRepository deviceRepo) {
         this.deviceRepo = deviceRepo;

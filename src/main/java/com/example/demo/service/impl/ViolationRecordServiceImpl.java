@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ViolationRecordServiceImpl implements ViolationRecordService {
 
-    private final ViolationRecordRepository violationRepo;
+    private ViolationRecordRepository violationRepo;
 
     public ViolationRecordServiceImpl(ViolationRecordRepository violationRepo) {
         this.violationRepo = violationRepo;
