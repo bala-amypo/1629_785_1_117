@@ -33,8 +33,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public UserAccount getUserById(Long id) {
-        return userRepo.findById(id)
-                .orElseThrow(() -> new BadRequestException("User not found"));
+        return userRepo.findById(id).orElseThrow(() -> new BadRequestException("User not found"));
     }
 
     @Override
