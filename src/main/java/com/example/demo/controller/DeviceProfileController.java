@@ -31,8 +31,13 @@ public class DeviceProfileController {
         return service.getDevicesByUser(userId);
     }
 
-    @GetMapping("/lookup/{deviceId}")
-    public DeviceProfile lookup(@PathVariable String deviceId) {
-        return service.findByDeviceId(deviceId).orElse(null);
-    }
+//     @GetMapping("/lookup/{deviceId}")
+//     public DeviceProfile lookup(@PathVariable String deviceId) {
+//         return service.findByDeviceId(deviceId).orElse(null);
+//     }
+@GetMapping("/lookup/{deviceId}")
+public DeviceProfile lookup(@PathVariable String deviceId) {
+    return service.findByDeviceId(deviceId);
+}
+
 }
