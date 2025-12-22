@@ -68,7 +68,7 @@ public class UserAccountController {
 
     @PutMapping("/{id}/status")
     public UserAccount update(@PathVariable Long id,
-                              @RequestParam AccountStatus status) {
+                              @RequestBody AccountStatus status) {
         return service.updateUserStatus(id, status);
     }
 
