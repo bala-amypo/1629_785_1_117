@@ -22,8 +22,7 @@ public class PolicyRuleController {
     }
 
     @PutMapping("/{id}")
-    public PolicyRule update(@PathVariable Long id,
-                             @RequestBody PolicyRule rule) {
+    public PolicyRule update(@PathVariable Long id,@RequestBody PolicyRule rule) {
         return service.updateRule(id, rule);
     }
 
