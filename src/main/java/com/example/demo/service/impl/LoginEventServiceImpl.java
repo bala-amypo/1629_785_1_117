@@ -13,9 +13,8 @@ import java.util.List;
 @Service
 public class LoginEventServiceImpl implements LoginEventService {
 
-    private final LoginEventRepository loginRepo;
+    private LoginEventRepository loginRepo;
 
-    // ✅ Constructor ONLY with repository
     public LoginEventServiceImpl(LoginEventRepository loginRepo) {
         this.loginRepo = loginRepo;
     }

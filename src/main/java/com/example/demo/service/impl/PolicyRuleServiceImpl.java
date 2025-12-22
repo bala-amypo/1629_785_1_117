@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class PolicyRuleServiceImpl implements PolicyRuleService {
 
-    private final PolicyRuleRepository ruleRepo;
+    private PolicyRuleRepository ruleRepo;
 
     public PolicyRuleServiceImpl(PolicyRuleRepository ruleRepo) {
         this.ruleRepo = ruleRepo;
@@ -24,8 +24,7 @@ public class PolicyRuleServiceImpl implements PolicyRuleService {
 
     @Override
     public PolicyRule updateRule(Long id, PolicyRule rule) {
-        PolicyRule existing = ruleRepo.findById(id)
-                .orElseThrow(() -> new BadRequestException("Rule not found"));
+        PolicyRule existing = ruleRepo.findById(id).orElseThrow(() -> new BadRequestException("Rule not found"));
         existing.setDescription(rule.getDescription());
         existing.setSeverity(rule.getSeverity());
         existing.setConditionsJson(rule.getConditionsJson());
@@ -40,8 +39,7 @@ public class PolicyRuleServiceImpl implements PolicyRuleService {
 
     @Override
     public PolicyRule getRuleByCode(String ruleCode) {
-        return ruleRepo.findByRuleCode(ruleCode)
-                .orElseThrow(() -> new BadRequestException("Rule not found"));
+        return ruleRepo.findByRuleCode(ruleCode).orElseThrow(() -> new BadRequestException("Rule not found"));
     }
 
     @Override
