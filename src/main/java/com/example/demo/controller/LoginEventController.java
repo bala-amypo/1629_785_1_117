@@ -1,19 +1,37 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.PolicyRule;
-import com.example.demo.service.PolicyRuleService;
-import org.springframework.http.ResponseEntity;
-import java.util.*;
+import com.example.demo.entity.LoginEvent;
+import com.example.demo.service.LoginEventService;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
-public class PolicyRuleController {
+@RestController
+@RequestMapping("/api/logins")
+public class LoginEventController {
 
-    private final PolicyRuleService service;
+    private final LoginEventService service;
 
-    public PolicyRuleController(PolicyRuleService service) {
+    public LoginEventController(LoginEventService service) {
         this.service = service;
     }
 
-    public ResponseEntity<List<PolicyRule>> all() {
-        return ResponseEntity.ok(service.getAllRules());
+    @PostMapping("/record")
+    public LoginEvent recordLogin(@RequestBody LoginEvent event) {
+        return service.recordLogin(event);
+    }
+
+    @GetMapping("/user/{userId}")
+    public List<LoginEvent> getByUser(@PathVariable Long userId) {
+        return service.getEventsByUser(userId);
+    }
+
+    @GetMapping("/suspicious/{userId}")
+    public List<LoginEvent> getSuspicious(@PathVariable Long userId) {
+        return service.getSuspiciousLogins(userId);
+    }
+
+    @GetMapping
+    public List<LoginEvent> getAll() {
+        return service.getAllEvents();
     }
 }
