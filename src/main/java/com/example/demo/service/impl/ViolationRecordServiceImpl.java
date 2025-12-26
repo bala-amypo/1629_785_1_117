@@ -4,7 +4,7 @@ import com.example.demo.entity.ViolationRecord;
 import com.example.demo.repository.ViolationRecordRepository;
 import com.example.demo.service.ViolationRecordService;
 
-import java.util.*;
+import java.util.List;
 
 public class ViolationRecordServiceImpl implements ViolationRecordService {
 
@@ -14,24 +14,29 @@ public class ViolationRecordServiceImpl implements ViolationRecordService {
         this.violationRepo = violationRepo;
     }
 
+    @Override
     public ViolationRecord logViolation(ViolationRecord violation) {
         return violationRepo.save(violation);
     }
 
+    @Override
     public List<ViolationRecord> getViolationsByUser(Long userId) {
         return violationRepo.findByUserId(userId);
     }
 
+    @Override
     public ViolationRecord markResolved(Long id) {
-        ViolationRecord v = violationRepo.findById(id).orElseThrow();
-        v.setResolved(true);
-        return violationRepo.save(v);
+        ViolationRecord record = violationRepo.findById(id).orElseThrow();
+        record.setResolved(true);
+        return violationRepo.save(record);
     }
 
+    @Override
     public List<ViolationRecord> getUnresolvedViolations() {
         return violationRepo.findByResolvedFalse();
     }
 
+    @Override
     public List<ViolationRecord> getAllViolations() {
         return violationRepo.findAll();
     }

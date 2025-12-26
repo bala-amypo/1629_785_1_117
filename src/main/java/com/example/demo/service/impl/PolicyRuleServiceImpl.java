@@ -4,7 +4,7 @@ import com.example.demo.entity.PolicyRule;
 import com.example.demo.repository.PolicyRuleRepository;
 import com.example.demo.service.PolicyRuleService;
 
-import java.util.*;
+import java.util.List;
 
 public class PolicyRuleServiceImpl implements PolicyRuleService {
 
@@ -14,10 +14,12 @@ public class PolicyRuleServiceImpl implements PolicyRuleService {
         this.ruleRepo = ruleRepo;
     }
 
+    @Override
     public PolicyRule createRule(PolicyRule rule) {
         return ruleRepo.save(rule);
     }
 
+    @Override
     public PolicyRule updateRule(Long id, PolicyRule rule) {
         PolicyRule existing = ruleRepo.findById(id).orElseThrow();
         existing.setDescription(rule.getDescription());
@@ -27,14 +29,17 @@ public class PolicyRuleServiceImpl implements PolicyRuleService {
         return ruleRepo.save(existing);
     }
 
+    @Override
     public List<PolicyRule> getActiveRules() {
         return ruleRepo.findByActiveTrue();
     }
 
+    @Override
     public PolicyRule getRuleByCode(String ruleCode) {
         return ruleRepo.findByRuleCode(ruleCode).orElseThrow();
     }
 
+    @Override
     public List<PolicyRule> getAllRules() {
         return ruleRepo.findAll();
     }

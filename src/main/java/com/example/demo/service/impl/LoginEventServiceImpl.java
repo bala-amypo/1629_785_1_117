@@ -18,20 +18,24 @@ public class LoginEventServiceImpl implements LoginEventService {
         this.ruleEvaluator = ruleEvaluator;
     }
 
+    @Override
     public LoginEvent recordLogin(LoginEvent event) {
         LoginEvent saved = loginRepo.save(event);
         ruleEvaluator.evaluateLoginEvent(event);
         return saved;
     }
 
+    @Override
     public List<LoginEvent> getEventsByUser(Long userId) {
         return loginRepo.findByUserId(userId);
     }
 
+    @Override
     public List<LoginEvent> getSuspiciousLogins(Long userId) {
         return loginRepo.findByUserIdAndLoginStatus(userId, "FAILED");
     }
 
+    @Override
     public List<LoginEvent> getAllEvents() {
         return loginRepo.findAll();
     }

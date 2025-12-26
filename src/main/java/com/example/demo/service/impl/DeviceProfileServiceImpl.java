@@ -4,7 +4,8 @@ import com.example.demo.entity.DeviceProfile;
 import com.example.demo.repository.DeviceProfileRepository;
 import com.example.demo.service.DeviceProfileService;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 public class DeviceProfileServiceImpl implements DeviceProfileService {
 
@@ -14,20 +15,24 @@ public class DeviceProfileServiceImpl implements DeviceProfileService {
         this.deviceRepo = deviceRepo;
     }
 
+    @Override
     public DeviceProfile registerDevice(DeviceProfile device) {
         return deviceRepo.save(device);
     }
 
+    @Override
     public DeviceProfile updateTrustStatus(Long id, boolean trust) {
-        DeviceProfile d = deviceRepo.findById(id).orElseThrow();
-        d.setIsTrusted(trust);
-        return deviceRepo.save(d);
+        DeviceProfile device = deviceRepo.findById(id).orElseThrow();
+        device.setIsTrusted(trust);
+        return deviceRepo.save(device);
     }
 
+    @Override
     public List<DeviceProfile> getDevicesByUser(Long userId) {
         return deviceRepo.findByUserId(userId);
     }
 
+    @Override
     public Optional<DeviceProfile> findByDeviceId(String deviceId) {
         return deviceRepo.findByDeviceId(deviceId);
     }
