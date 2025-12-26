@@ -9,7 +9,6 @@ public class JwtConfig {
 
     @Bean
     public JwtUtil jwtUtil() {
-        // ✅ Must match constructor expected in tests
         return new JwtUtil(
                 "TestSecretKeyForJWT1234567890",
                 3600000L,

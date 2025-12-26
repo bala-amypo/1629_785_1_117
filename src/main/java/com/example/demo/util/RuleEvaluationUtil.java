@@ -40,8 +40,7 @@ public class RuleEvaluationUtil {
                 v.setDetails("Policy violation detected");
                 v.setUserId(event.getUserId());
                 v.setEventId(event.getId());
-                v.setDetectedAt(LocalDateTime.now());
-
+                v.setCreatedAt(LocalDateTime.now()); // ✅ correct field
 
                 violationRepo.save(v);
             }
