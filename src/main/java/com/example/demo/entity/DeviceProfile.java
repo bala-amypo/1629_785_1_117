@@ -8,17 +8,16 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserAccount {
+public class DeviceProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String employeeId;
-    private String username;
-    private String email;
-    private String password;
-    private String role;
-    private String status;
-    private LocalDateTime createdAt;
+    private Long userId;
+    private String deviceId;
+    private String deviceType;
+    private String osVersion;
+    private LocalDateTime lastSeen;
+    private Boolean isTrusted;
 }

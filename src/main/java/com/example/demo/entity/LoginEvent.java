@@ -8,17 +8,16 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserAccount {
+public class LoginEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String employeeId;
-    private String username;
-    private String email;
-    private String password;
-    private String role;
-    private String status;
-    private LocalDateTime createdAt;
+    private Long userId;
+    private String ipAddress;
+    private String location;
+    private String deviceId;
+    private LocalDateTime timestamp;
+    private String loginStatus;
 }
