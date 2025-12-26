@@ -1,14 +1,20 @@
 package com.example.demo.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
-@Getter
-@AllArgsConstructor
 public class JwtResponse {
 
     private String token;
-    private Long userId;
-    private String email;
-    private String role;
+
+    public JwtResponse() {}
+
+    public JwtResponse(String token) {
+        this.token = token;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }
