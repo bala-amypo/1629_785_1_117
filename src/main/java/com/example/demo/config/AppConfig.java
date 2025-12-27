@@ -9,16 +9,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class AppConfig {
 
-    // PasswordEncoder bean for UserAccountServiceImpl
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     // JwtUtil bean
     @Bean
     public JwtUtil jwtUtil() {
-        // secret, validityInMs, isTestMode
         return new JwtUtil("TestSecretKeyForJWT1234567890", 3600000L, true);
+    }
+
+    // PasswordEncoder bean
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
