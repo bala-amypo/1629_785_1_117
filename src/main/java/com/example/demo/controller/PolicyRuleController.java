@@ -39,34 +39,18 @@
 // //     }
 // // }
 
-// package com.example.demo.controller;
-
-// import com.example.demo.entity.*;
-// import com.example.demo.service.*;
-// import org.springframework.http.*;
-
-// public class PolicyRuleController {
-//     private final PolicyRuleService service;
-//     public PolicyRuleController(PolicyRuleService service) {
-//         this.service = service;
-//     }
-//     public ResponseEntity<java.util.List<PolicyRule>> all() {
-//         return ResponseEntity.ok(service.getAllRules());
-//     }
-// }
-
 package com.example.demo.controller;
 
 import com.example.demo.entity.*;
 import com.example.demo.service.*;
 import org.springframework.http.*;
 
-public class UserAccountController {
-    private final UserAccountService service;
-    public UserAccountController(UserAccountService service) {
+public class PolicyRuleController {
+    private final PolicyRuleService service;
+    public PolicyRuleController(PolicyRuleService service) {
         this.service = service;
     }
-    public ResponseEntity<UserAccount> create(UserAccount u) {
-        return ResponseEntity.ok(service.createUser(u));
+    public ResponseEntity<java.util.List<PolicyRule>> all() {
+        return ResponseEntity.ok(service.getAllRules());
     }
 }
