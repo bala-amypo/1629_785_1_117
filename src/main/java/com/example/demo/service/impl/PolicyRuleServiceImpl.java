@@ -15,11 +15,11 @@ public class PolicyRuleServiceImpl implements PolicyRuleService {
     public PolicyRuleServiceImpl(PolicyRuleRepository repo) {
         this.repo = repo;
     }
-
+  @Override
     public PolicyRule createRule(PolicyRule r) {
         return repo.save(r);
     }
-
+  @Override
     public PolicyRule updateRule(Long id, PolicyRule r) {
         PolicyRule p = repo.findById(id).orElseThrow();
         p.setDescription(r.getDescription());
@@ -28,15 +28,15 @@ public class PolicyRuleServiceImpl implements PolicyRuleService {
         p.setActive(r.getActive());
         return repo.save(p);
     }
-
+  @Override
     public List<PolicyRule> getActiveRules() {
         return repo.findByActiveTrue();
     }
-
+  @Override
     public PolicyRule getRuleByCode(String code) {
         return repo.findByRuleCode(code).orElseThrow();
     }
-
+  @Override
     public List<PolicyRule> getAllRules() {
         return repo.findAll();
     }

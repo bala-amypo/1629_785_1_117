@@ -21,28 +21,28 @@ public class UserAccountServiceImpl implements UserAccountService {
         this.userRepo = userRepo;
         this.encoder = encoder;
     }
-
+  @Override
     public UserAccount createUser(UserAccount user) {
         user.setPassword(encoder.encode(user.getPassword()));
         if (user.getStatus() == null) user.setStatus("ACTIVE");
         user.setCreatedAt(LocalDateTime.now());
         return userRepo.save(user);
     }
-
+  @Override
     public UserAccount getUserById(Long id) {
         return userRepo.findById(id).orElseThrow();
     }
-
+  @Override
     public UserAccount updateUserStatus(Long id, String status) {
         UserAccount u = getUserById(id);
         u.setStatus(status);
         return userRepo.save(u);
     }
-
+  @Override
     public List<UserAccount> getAllUsers() {
         return userRepo.findAll();
     }
-
+  @Override
     public Optional<UserAccount> findByUsername(String username) {
         return userRepo.findByUsername(username);
     }

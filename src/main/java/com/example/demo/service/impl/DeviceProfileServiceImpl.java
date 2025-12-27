@@ -15,21 +15,21 @@ public class DeviceProfileServiceImpl implements DeviceProfileService {
     public DeviceProfileServiceImpl(DeviceProfileRepository repo) {
         this.repo = repo;
     }
-
+  @Override
     public DeviceProfile registerDevice(DeviceProfile d) {
         return repo.save(d);
     }
-
+  @Override
     public DeviceProfile updateTrustStatus(Long id, boolean trust) {
         DeviceProfile d = repo.findById(id).orElseThrow();
         d.setIsTrusted(trust);
         return repo.save(d);
     }
-
+  @Override
     public List<DeviceProfile> getDevicesByUser(Long userId) {
         return repo.findByUserId(userId);
     }
-
+  @Override
     public Optional<DeviceProfile> findByDeviceId(String deviceId) {
         return repo.findByDeviceId(deviceId);
     }

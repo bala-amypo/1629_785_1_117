@@ -32,7 +32,7 @@ public class ViolationRecordServiceImpl implements ViolationRecordService {
     public List<ViolationRecord> getUnresolvedViolations() {
         return repo.findByResolvedFalse();
     }
-
+  @Override
     public List<ViolationRecord> getAllViolations() {
         return repo.findAll();
     }
