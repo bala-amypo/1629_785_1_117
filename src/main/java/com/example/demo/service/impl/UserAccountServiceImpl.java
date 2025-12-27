@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+@Service
 public class UserAccountServiceImpl implements UserAccountService {
 
     private UserAccountRepository userRepo;
