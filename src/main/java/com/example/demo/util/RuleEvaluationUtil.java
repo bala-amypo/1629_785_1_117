@@ -6,6 +6,10 @@ import com.example.demo.repository.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class RuleEvaluationUtil {
 
     private final PolicyRuleRepository ruleRepo;
