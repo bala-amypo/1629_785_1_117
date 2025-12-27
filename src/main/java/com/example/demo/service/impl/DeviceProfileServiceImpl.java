@@ -1,39 +1,39 @@
-package com.example.demo.service.impl;
+// package com.example.demo.service.impl;
 
-import com.example.demo.entity.DeviceProfile;
-import com.example.demo.repository.DeviceProfileRepository;
-import com.example.demo.service.DeviceProfileService;
+// import com.example.demo.entity.DeviceProfile;
+// import com.example.demo.repository.DeviceProfileRepository;
+// import com.example.demo.service.DeviceProfileService;
 
-import java.util.List;
-import java.util.Optional;
-import org.springframework.stereotype.Service;
-@Service
-public class DeviceProfileServiceImpl implements DeviceProfileService {
+// import java.util.List;
+// import java.util.Optional;
+// import org.springframework.stereotype.Service;
+// @Service
+// public class DeviceProfileServiceImpl implements DeviceProfileService {
 
-    private DeviceProfileRepository repo;
+//     private DeviceProfileRepository repo;
 
-    public DeviceProfileServiceImpl(DeviceProfileRepository repo) {
-        this.repo = repo;
-    }
-  @Override
-    public DeviceProfile registerDevice(DeviceProfile d) {
-        return repo.save(d);
-    }
-  @Override
-    public DeviceProfile updateTrustStatus(Long id, boolean trust) {
-        DeviceProfile d = repo.findById(id).orElseThrow();
-        d.setIsTrusted(trust);
-        return repo.save(d);
-    }
-  @Override
-    public List<DeviceProfile> getDevicesByUser(Long userId) {
-        return repo.findByUserId(userId);
-    }
-  @Override
-    public Optional<DeviceProfile> findByDeviceId(String deviceId) {
-        return repo.findByDeviceId(deviceId);
-    }
-}
+//     public DeviceProfileServiceImpl(DeviceProfileRepository repo) {
+//         this.repo = repo;
+//     }
+//   @Override
+//     public DeviceProfile registerDevice(DeviceProfile d) {
+//         return repo.save(d);
+//     }
+//   @Override
+//     public DeviceProfile updateTrustStatus(Long id, boolean trust) {
+//         DeviceProfile d = repo.findById(id).orElseThrow();
+//         d.setIsTrusted(trust);
+//         return repo.save(d);
+//     }
+//   @Override
+//     public List<DeviceProfile> getDevicesByUser(Long userId) {
+//         return repo.findByUserId(userId);
+//     }
+//   @Override
+//     public Optional<DeviceProfile> findByDeviceId(String deviceId) {
+//         return repo.findByDeviceId(deviceId);
+//     }
+// }
 
 
 // package com.example.demo.service.impl;
