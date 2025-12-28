@@ -9,7 +9,6 @@ import com.example.demo.util.RuleEvaluationUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -17,26 +16,26 @@ import java.util.List;
 public class LoginEventServiceImpl implements LoginEventService {
 
     private final LoginEventRepository loginRepo;
-    private final RuleEvaluationUtil ruleEvaluator;
     private final UserAccountRepository userRepo;
+    private final RuleEvaluationUtil ruleEvaluator;
 
     @Override
     public LoginEvent recordLogin(LoginEvent event) {
-        LoginEvent saved = loginRepo.save(event);
-        ruleEvaluator.evaluateLoginEvent(saved);
+        LoginEvent saved = loginRepo.save(event);       // Save event first
+        ruleEvaluator.evaluateLoginEvent(saved);        // Trigger violation check
         return saved;
     }
 
     @Override
-    public List<LoginEvent> getEventsByUser(Long id) {
-        UserAccount user = userRepo.findById(id)
+    public List<LoginEvent> getEventsByUser(Long userId) {
+        UserAccount user = userRepo.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         return loginRepo.findByUser(user);
     }
 
     @Override
-    public List<LoginEvent> getSuspiciousLogins(Long id) {
-        UserAccount user = userRepo.findById(id)
+    public List<LoginEvent> getSuspiciousLogins(Long userId) {
+        UserAccount user = userRepo.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         return loginRepo.findByUserAndLoginStatus(user, "FAILED");
     }

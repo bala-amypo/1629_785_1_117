@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface LoginEventRepository extends JpaRepository<LoginEvent, Long> {
-    List<LoginEvent> findByUser(UserAccount user);
-    List<LoginEvent> findByUserAndLoginStatus(UserAccount user, String loginStatus);
+
+    List<LoginEvent> findByUser(UserAccount user);                         // instead of findByUserId
+    List<LoginEvent> findByUserAndLoginStatus(UserAccount user, String status);
 }
