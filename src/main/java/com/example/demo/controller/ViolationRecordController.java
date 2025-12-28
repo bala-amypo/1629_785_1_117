@@ -1,3 +1,10 @@
+import com.example.demo.entity.ViolationRecord;
+import com.example.demo.service.ViolationRecordService;
+import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
+import java.util.List;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/violations")
