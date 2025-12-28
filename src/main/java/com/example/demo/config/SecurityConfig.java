@@ -1,9 +1,11 @@
 package com.example.demo.config;
 
-import com.example.demo.security.*;
+import com.example.demo.security.JwtAuthenticationEntryPoint;
+import com.example.demo.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,21 +22,28 @@ public class SecurityConfig {
     private final JwtAuthenticationEntryPoint entryPoint;
 
     @Bean
-    public PasswordEncoder encoder() { return new BCryptPasswordEncoder(); }
+    public PasswordEncoder encoder(){
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/auth/**",
-                                 "/v3/api-docs/**",
-                                 "/swagger-ui/**",
-                                 "/swagger-ui.html").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .exceptionHandling()
-                .authenticationEntryPoint(entryPoint);
+        http.csrf(cs -> cs.disable())
+            .authorizeHttpRequests(auth -> auth
+                    // public endpoints
+                    .requestMatchers(
+                        "/auth/**",
+                        "/v3/api-docs/**",
+                        "/swagger-ui/**",
+                        "/swagger-ui.html"
+                    ).permitAll()
+                    // allow first user creation
+                    .requestMatchers(HttpMethod.POST, "/users").permitAll()
+                    // everything else requires token
+                    .anyRequest().authenticated()
+            )
+            .exceptionHandling(ex -> ex.authenticationEntryPoint(entryPoint));
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
