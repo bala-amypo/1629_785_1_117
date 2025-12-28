@@ -8,25 +8,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/login-events")
+@RequestMapping("/logins")
 @RequiredArgsConstructor
 public class LoginEventController {
 
-    private final LoginEventService loginEventService;
+    private final LoginEventService loginService;
 
     @PostMapping
-    public LoginEvent record(@RequestBody LoginEvent event) {
-        Long userId = event.getUser().getId();  // extract userId from JSON
-        return loginEventService.recordLogin(userId, event);
+    public LoginEvent record(@RequestBody LoginEvent event){
+        return loginService.recordLogin(event);     // ✔ correct call
     }
 
-    @GetMapping("/{userId}")
-    public List<LoginEvent> getEvents(@PathVariable Long userId) {
-        return loginEventService.getEventsByUser(userId);
+    @GetMapping("/user/{id}")
+    public List<LoginEvent> userEvents(@PathVariable Long id){
+        return loginService.getEventsByUser(id);
     }
 
-    @GetMapping("/{userId}/suspicious")
-    public List<LoginEvent> getSuspicious(@PathVariable Long userId) {
-        return loginEventService.getSuspiciousLogins(userId);
+    @GetMapping("/user/{id}/failed")
+    public List<LoginEvent> failedLogins(@PathVariable Long id){
+        return loginService.getSuspiciousLogins(id);
     }
 }
