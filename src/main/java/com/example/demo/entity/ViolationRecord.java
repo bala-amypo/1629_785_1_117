@@ -12,11 +12,16 @@ public class ViolationRecord {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;
-    private Long eventId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserAccount user;
+
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private LoginEvent event;
+
     private String details;
     private String severity;
-    private Boolean resolved = false;
-
-    private LocalDateTime timestamp = LocalDateTime.now(); // << ADDED
+    private boolean resolved = false;
+    private LocalDateTime timestamp;
 }

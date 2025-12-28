@@ -20,25 +20,22 @@ public class RuleEvaluationUtil {
 
     public void evaluateLoginEvent(LoginEvent event) {
 
-        // testcase expects findByActiveTrue()
         List<PolicyRule> rules = ruleRepo.findByActiveTrue();
 
         for (PolicyRule rule : rules) {
 
-            // simple rule check (FAILED status)
             if (event.getLoginStatus() != null &&
                 rule.getConditionsJson() != null &&
                 event.getLoginStatus().contains(rule.getConditionsJson())) {
 
                 ViolationRecord vr = new ViolationRecord();
-                vr.setEventId(event.getId());
-                vr.setUserId(event.getUser().getId());     // FIXED
+                vr.setEvent(event);                   // ← Change here
+                vr.setUser(event.getUser());         // ← Change here
+                vr.setTimestamp(LocalDateTime.now());
                 vr.setSeverity(rule.getSeverity());
-                vr.setResolved(false);
-                vr.setDetails("Rule violated: " + rule.getConditionsJson() +
-                        " at " + LocalDateTime.now());     // timestamp included
+                vr.setDetails("Rule violated: " + rule.getConditionsJson());
 
-                violationRepo.save(vr); // testcase expects save() call
+                violationRepo.save(vr);
             }
         }
     }
