@@ -1,3 +1,12 @@
+import com.example.demo.entity.PolicyRule;
+import com.example.demo.service.PolicyRuleService;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import java.util.List;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import org.springframework.web.bind.annotation.RestController;
+
 @RestController
 @RequestMapping("/rules")
 @RequiredArgsConstructor
