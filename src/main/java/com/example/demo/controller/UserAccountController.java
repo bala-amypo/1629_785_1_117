@@ -1,58 +1,39 @@
-// package com.example.demo.controller;
-
-// import com.example.demo.entity.UserAccount;
-// import com.example.demo.service.UserAccountService;
-// import org.springframework.web.bind.annotation.*;
-// import java.util.List;
-
-// @RestController
-// @RequestMapping("/api/users")
-// public class UserAccountController {
-
-//     private final UserAccountService service;
-
-//     public UserAccountController(UserAccountService service) {
-//         this.service = service;
-//     }
-
-//     @PostMapping
-//     public UserAccount createUser(@RequestBody UserAccount user) {
-//         return service.createUser(user);
-//     }
-
-//     @GetMapping("/{id}")
-//     public UserAccount getUser(@PathVariable Long id) {
-//         return service.getUserById(id);
-//     }
-
-//     @PutMapping("/{id}/status")
-//     public UserAccount updateStatus(
-//             @PathVariable Long id,
-//             @RequestParam String status) {
-
-//         return service.updateUserStatus(id, status);
-//     }
-
-//     @GetMapping
-//     public List<UserAccount> getAllUsers() {
-//         return service.getAllUsers();
-//     }
-// }
-
 package com.example.demo.controller;
 
-import com.example.demo.entity.*;
-import com.example.demo.service.*;
-import org.springframework.http.*;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.entity.UserAccount;
+import com.example.demo.service.UserAccountService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/users")
+@RequiredArgsConstructor
+@SecurityRequirement(name = "BearerAuth")   // 🔐 lock visible in Swagger
 public class UserAccountController {
-    private final UserAccountService service;
-    public UserAccountController(UserAccountService service) {
-        this.service = service;
+
+    private final UserAccountService userService;
+
+    @PostMapping
+    public ResponseEntity<UserAccount> create(@RequestBody UserAccount user){
+        return ResponseEntity.ok(userService.createUser(user));
     }
-    public ResponseEntity<UserAccount> create(UserAccount u) {
-        return ResponseEntity.ok(service.createUser(u));
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UserAccount> getById(@PathVariable Long id){
+        return ResponseEntity.ok(userService.getUserById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<UserAccount>> getAll(){
+        return ResponseEntity.ok(userService.getAllUsers());
+    }
+
+    @PutMapping("/{id}/status/{status}")
+    public ResponseEntity<UserAccount> updateStatus(@PathVariable Long id, @PathVariable String status){
+        return ResponseEntity.ok(userService.updateUserStatus(id,status));
     }
 }
