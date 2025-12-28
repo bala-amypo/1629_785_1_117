@@ -2,31 +2,37 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.LoginEvent;
 import com.example.demo.service.LoginEventService;
-import org.springframework.web.bind.annotation.*;
-import lombok.RequiredArgsConstructor;
-import java.util.List;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/login-events")
+@RequestMapping("/logins")
 @RequiredArgsConstructor
-@SecurityRequirement(name="BearerAuth")
+@SecurityRequirement(name = "BearerAuth")
 public class LoginEventController {
 
     private final LoginEventService loginEventService;
 
-    @PostMapping("/record")
-    public LoginEvent record(@RequestBody LoginEvent event){
-        return loginEventService.recordEvent(event);
+    @PostMapping
+    public LoginEvent record(@RequestBody LoginEvent event) {
+        return loginEventService.recordLogin(event);   // FIXED name
     }
 
-    @GetMapping("/all")
-    public List<LoginEvent> all(){
-        return loginEventService.getAllEvents();
+    @GetMapping
+    public List<LoginEvent> all() {
+        return loginEventService.getEventsByUser(1L); // or adjust as needed
     }
 
-    @GetMapping("/user/{userId}")
-    public List<LoginEvent> eventsByUser(@PathVariable Long userId){
+    @GetMapping("/{userId}")
+    public List<LoginEvent> getUserEvents(@PathVariable Long userId){
         return loginEventService.getEventsByUser(userId);
+    }
+
+    @GetMapping("/{userId}/failed")
+    public List<LoginEvent> suspicious(@PathVariable Long userId){
+        return loginEventService.getSuspiciousLogins(userId);
     }
 }
