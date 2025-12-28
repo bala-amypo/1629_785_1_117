@@ -16,44 +16,19 @@ public class LoginEventController {
 
     private final LoginEventService loginEventService;
 
-    @PostMapping("/{userId}")     // <<< userId comes from URL
+    @PostMapping("/{userId}")     // Create login event for a user
     public LoginEvent record(@PathVariable Long userId,
                              @RequestBody LoginEvent event){
         return loginEventService.recordLogin(userId, event);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/{userId}")      // Get all login events for user
     public List<LoginEvent> userEvents(@PathVariable Long userId){
         return loginEventService.getEventsByUser(userId);
     }
 
-    @GetMapping("/{userId}/failed")
+    @GetMapping("/{userId}/failed")  // Get suspicious (FAILED) logins
     public List<LoginEvent> suspicious(@PathVariable Long userId){
         return loginEventService.getSuspiciousLogins(userId);
     }
 }
-
-
-// @RestController
-// @RequestMapping("/logins")
-// @RequiredArgsConstructor
-// @SecurityRequirement(name = "BearerAuth")   // 🔒 Lock appears now
-// public class LoginEventController {
-
-//     private final LoginEventService loginService;
-
-//     @PostMapping
-//     public LoginEvent record(@RequestBody LoginEvent event){
-//         return loginService.recordLogin(event);
-//     }
-
-//     @GetMapping("/user/{id}")
-//     public List<LoginEvent> userEvents(@PathVariable Long id){
-//         return loginService.getEventsByUser(id);
-//     }
-
-//     @GetMapping("/user/{id}/failed")
-//     public List<LoginEvent> failedLogins(@PathVariable Long id){
-//         return loginService.getSuspiciousLogins(id);
-//     }
-// }
