@@ -7,7 +7,9 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private final String secret = "TestSecretKeyForJWT1234567890"; // Do not change
+    // private final String secret = "TestSecretKeyForJWT1234567890"; // Do not change
+    private final String secret = "ThisIsASuperStrongJWTKey1234567890ABCDEF!"; // 32+ chars
+
     private final long expiry = 3600000; // 1 hour
 
     public String generateToken(String username, Long userId, String email, String role) {
