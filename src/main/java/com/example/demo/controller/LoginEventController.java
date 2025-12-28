@@ -4,19 +4,21 @@ import com.example.demo.entity.LoginEvent;
 import com.example.demo.service.LoginEventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/logins")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "BearerAuth")   // 🔒 Lock appears now
 public class LoginEventController {
 
     private final LoginEventService loginService;
 
     @PostMapping
     public LoginEvent record(@RequestBody LoginEvent event){
-        return loginService.recordLogin(event);     // ✔ correct call
+        return loginService.recordLogin(event);
     }
 
     @GetMapping("/user/{id}")
