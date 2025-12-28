@@ -7,13 +7,12 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter
+@Table(name = "login_event")
 public class LoginEvent {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;                     // REQUIRED FOR TESTCASES
     private String ipAddress;
     private String deviceId;
     private String location;
@@ -21,12 +20,12 @@ public class LoginEvent {
     private LocalDateTime timestamp;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private UserAccount user;                // keep relation safe
+    @JoinColumn(name = "user_id", nullable = false)   // only THIS creates the column
+    private UserAccount user;
 }
 
 
-
+then what about this code??
 
 
 
