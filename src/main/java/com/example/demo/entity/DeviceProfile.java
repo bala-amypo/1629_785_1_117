@@ -16,8 +16,10 @@ public class DeviceProfile {
     private String deviceType;
     private String osVersion;
 
+    private Boolean isTrusted = false;   // ← REQUIRED FIELD (Fix for build error)
+
     @ManyToOne
-    @JoinColumn(name = "user_id") // only ONE mapping now
+    @JoinColumn(name = "user_id")        // Only one mapping to avoid duplicate column issue
     private UserAccount user;
 }
 
