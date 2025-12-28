@@ -44,7 +44,9 @@ package com.example.demo.controller;
 import com.example.demo.entity.*;
 import com.example.demo.service.*;
 import org.springframework.http.*;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class DeviceProfileController {
     private final DeviceProfileService service;
     public DeviceProfileController(DeviceProfileService service) {
