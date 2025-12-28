@@ -13,6 +13,9 @@ package com.example.demo.service;
 
 import com.example.demo.entity.*;
 import java.util.*;
+import org.springframework.stereotype.Service;
+
+@Service
 public interface LoginEventService {
     LoginEvent recordLogin(LoginEvent e);
     List<LoginEvent> getEventsByUser(Long id);

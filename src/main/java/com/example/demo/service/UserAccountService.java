@@ -15,7 +15,9 @@ package com.example.demo.service;
 
 import com.example.demo.entity.*;
 import java.util.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserAccountService {
     UserAccount createUser(UserAccount u);
     UserAccount getUserById(Long id);
