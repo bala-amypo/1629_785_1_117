@@ -1,34 +1,23 @@
-// package com.example.demo.dto;
+package com.example.demo.dto;
 
-// public class RegisterRequest {
+import lombok.Getter;
+import lombok.Setter;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
-//     private String username;
-//     private String email;
-//     private String password;
+@Getter @Setter
+public class RegisterRequest {
 
-//     public RegisterRequest() {}
+    @NotBlank(message = "Username required")
+    private String username;
 
-//     public String getUsername() {
-//         return username;
-//     }
+    @Email(message = "Invalid email format")
+    @NotBlank(message = "Email required")
+    private String email;
 
-//     public void setUsername(String username) {
-//         this.username = username;
-//     }
+    @NotBlank(message = "Password required")
+    private String password;
 
-//     public String getEmail() {
-//         return email;
-//     }
-
-//     public void setEmail(String email) {
-//         this.email = email;
-//     }
-
-//     public String getPassword() {
-//         return password;
-//     }
-
-//     public void setPassword(String password) {
-//         this.password = password;
-//     }
-// }
+    private String role;       // ADMIN/USER/AUDITOR
+    private String employeeId; // As per testcases & SRS
+}
