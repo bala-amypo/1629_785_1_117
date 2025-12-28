@@ -1,25 +1,15 @@
-// package com.example.demo.dto;
+package com.example.demo.dto;
 
-// public class LoginRequest {
+import lombok.Getter;
+import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
 
-//     private String username;
-//     private String password;
+@Getter @Setter
+public class LoginRequest {
 
-//     public LoginRequest() {}
+    @NotBlank(message = "Email required")
+    private String email;
 
-//     public String getUsername() {
-//         return username;
-//     }
-
-//     public void setUsername(String username) {
-//         this.username = username;
-//     }
-
-//     public String getPassword() {
-//         return password;
-//     }
-
-//     public void setPassword(String password) {
-//         this.password = password;
-//     }
-// }
+    @NotBlank(message = "Password required")
+    private String password;
+}
