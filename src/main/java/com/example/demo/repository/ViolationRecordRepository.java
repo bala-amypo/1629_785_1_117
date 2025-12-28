@@ -10,10 +10,11 @@
 // }
 
 package com.example.demo.repository;
-
-import com.example.demo.entity.*;
+import com.example.demo.entity.ViolationRecord;
+// import com.example.demo.entity.*;
 import java.util.*;
-public interface ViolationRecordRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+public interface ViolationRecordRepository extends JpaRepository<ViolationRecord, Long>{
     ViolationRecord save(ViolationRecord v);
     Optional<ViolationRecord> findById(Long id);
     List<ViolationRecord> findByResolvedFalse();
