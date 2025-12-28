@@ -13,6 +13,7 @@ package com.example.demo.service;
 
 import com.example.demo.entity.*;
 import java.util.*;
+@Service
 public interface DeviceProfileService {
     DeviceProfile registerDevice(DeviceProfile d);
     Optional<DeviceProfile> findByDeviceId(String id);
