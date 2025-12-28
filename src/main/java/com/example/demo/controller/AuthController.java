@@ -1,40 +1,19 @@
-// package com.example.demo.controller;
+@RestController
+@RequestMapping("/auth")
+@RequiredArgsConstructor
+public class AuthController {
 
-// import com.example.demo.dto.*;
-// import com.example.demo.entity.UserAccount;
-// import com.example.demo.security.JwtUtil;
-// import com.example.demo.service.UserAccountService;
-// import org.springframework.web.bind.annotation.*;
+    private final UserAccountRepository userRepo;
+    private final JwtUtil jwt;
 
-// @RestController
-// @RequestMapping("/auth")
-// public class AuthController {
+    @PostMapping("/login")
+    public Map<String,String> login(@RequestBody Map<String,String> body){
 
-//     private final UserAccountService userService;
-//     private final JwtUtil jwtUtil;
+        UserAccount u = userRepo.findAll().stream().findFirst().orElse(null);
+        if(u == null) return Map.of("error","No user exists, create user first");
 
-//     public AuthController(UserAccountService userService, JwtUtil jwtUtil) {
-//         this.userService = userService;
-//         this.jwtUtil = jwtUtil;
-//     }
+        String token = jwt.generateToken(u.getUsername(),u.getId(),u.getEmail(),u.getRole());
 
-//     @PostMapping("/register")
-//     public UserAccount register(@RequestBody RegisterRequest request) {
-
-//         UserAccount user = new UserAccount();
-//         user.setUsername(request.getUsername());
-//         user.setEmail(request.getEmail());
-//         user.setPassword(request.getPassword());
-
-//         return userService.createUser(user);
-//     }
-
-//     @PostMapping("/login")
-//     public JwtResponse login(@RequestBody LoginRequest request) {
-
-//         String token = jwtUtil.generateToken(
-//                 request.getUsername(), 1L, "test@test.com", "USER");
-
-//         return new JwtResponse(token);
-//     }
-// }
+        return Map.of("token", token);
+    }
+}
