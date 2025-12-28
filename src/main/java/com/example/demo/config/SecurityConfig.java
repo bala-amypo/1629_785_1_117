@@ -61,17 +61,20 @@ public class SecurityConfig {
             .csrf().disable()
             .authorizeHttpRequests(auth -> auth
 
-                // ✅ ALLOW SWAGGER UI
+                // ✅ VERY IMPORTANT (FOR AMYPO / CLOUD)
+                .requestMatchers("/").permitAll()
+
+                // ✅ SWAGGER ENDPOINTS
                 .requestMatchers(
                     "/swagger-ui/**",
                     "/swagger-ui.html",
                     "/v3/api-docs/**"
                 ).permitAll()
 
-                // ✅ ALLOW AUTH APIs
+                // ✅ AUTH ENDPOINTS
                 .requestMatchers("/auth/**").permitAll()
 
-                // 🔒 EVERYTHING ELSE PROTECTED
+                // 🔒 EVERYTHING ELSE
                 .anyRequest().authenticated()
             )
             .sessionManagement()
