@@ -18,6 +18,7 @@ public class ViolationRecord {
 
     @ManyToOne
     @JoinColumn(name = "event_id")
+    
     private LoginEvent event;
 
     private String details;
