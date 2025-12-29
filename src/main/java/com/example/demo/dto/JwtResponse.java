@@ -1,13 +1,13 @@
-package com.example.demo.dto;
+// package com.example.demo.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+// import lombok.AllArgsConstructor;
+// import lombok.Getter;
+// import lombok.Setter;
 
-@Getter @Setter @AllArgsConstructor
-public class JwtResponse {
-    private String token;
-    private Long userId;
-    private String email;
-    private String role;
-}
+// @Getter @Setter @AllArgsConstructor
+// public class JwtResponse {
+//     private String token;
+//     private Long userId;
+//     private String email;
+//     private String role;
+// }
