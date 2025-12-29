@@ -1,27 +1,27 @@
-package com.example.demo.service;
-
-import com.example.demo.entity.ViolationRecord;
-import java.util.List;
-
-public interface ViolationRecordService {
-
-    ViolationRecord logViolation(ViolationRecord record);
-
-    List<ViolationRecord> getUnresolvedViolations();
-
-    ViolationRecord markResolved(Long id);
-}
-
-
-
-
-
 // package com.example.demo.service;
 
-// import com.example.demo.entity.*;
-// import java.util.*;
+// import com.example.demo.entity.ViolationRecord;
+// import java.util.List;
+
 // public interface ViolationRecordService {
-//     ViolationRecord logViolation(ViolationRecord v);
+
+//     ViolationRecord logViolation(ViolationRecord record);
+
 //     List<ViolationRecord> getUnresolvedViolations();
+
 //     ViolationRecord markResolved(Long id);
 // }
+
+
+
+
+
+package com.example.demo.service;
+
+import com.example.demo.entity.*;
+import java.util.*;
+public interface ViolationRecordService {
+    ViolationRecord logViolation(ViolationRecord v);
+    List<ViolationRecord> getUnresolvedViolations();
+    ViolationRecord markResolved(Long id);
+}
