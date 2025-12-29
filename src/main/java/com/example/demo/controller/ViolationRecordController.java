@@ -11,24 +11,23 @@ import java.util.List;
 @RestController
 @RequestMapping("/violations")
 @RequiredArgsConstructor
-@SecurityRequirement(name = "BearerAuth")   // Secure routes
+@SecurityRequirement(name = "BearerAuth")
 public class ViolationRecordController {
 
-    private final ViolationRecordService service;
+    private final ViolationRecordService violationService;
 
-    // ⬅ expects only request body, no userId here
     @PostMapping("/log")
-    public ViolationRecord log(@RequestBody ViolationRecord record){
-        return service.logViolation(record);
+    public ViolationRecord log(@RequestBody ViolationRecord v){
+        return violationService.logViolation(v);
     }
 
     @GetMapping("/unresolved")
     public List<ViolationRecord> unresolved(){
-        return service.getUnresolvedViolations();
+        return violationService.getUnresolvedViolations();
     }
 
     @PutMapping("/resolve/{id}")
     public ViolationRecord resolve(@PathVariable Long id){
-        return service.markResolved(id);
+        return violationService.markResolved(id);
     }
 }
