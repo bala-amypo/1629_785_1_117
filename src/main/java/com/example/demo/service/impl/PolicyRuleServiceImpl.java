@@ -1,34 +1,34 @@
-package com.example.demo.service.impl;
+// package com.example.demo.service.impl;
 
-import com.example.demo.entity.PolicyRule;
-import com.example.demo.repository.PolicyRuleRepository;
-import com.example.demo.service.PolicyRuleService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+// import com.example.demo.entity.PolicyRule;
+// import com.example.demo.repository.PolicyRuleRepository;
+// import com.example.demo.service.PolicyRuleService;
+// import lombok.RequiredArgsConstructor;
+// import org.springframework.stereotype.Service;
 
-import java.util.List;
+// import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class PolicyRuleServiceImpl implements PolicyRuleService {
+// @Service
+// @RequiredArgsConstructor
+// public class PolicyRuleServiceImpl implements PolicyRuleService {
 
-    private final PolicyRuleRepository ruleRepo;
+//     private final PolicyRuleRepository ruleRepo;
 
-    @Override
-    public PolicyRule createRule(PolicyRule rule) {
-        return ruleRepo.save(rule);
-    }
+//     @Override
+//     public PolicyRule createRule(PolicyRule rule) {
+//         return ruleRepo.save(rule);
+//     }
 
-    @Override
-    public List<PolicyRule> getActiveRules() {
-        return ruleRepo.findByActiveTrue();
-    }
+//     @Override
+//     public List<PolicyRule> getActiveRules() {
+//         return ruleRepo.findByActiveTrue();
+//     }
 
-    @Override
-    public List<PolicyRule> getAllRules() {
-        return ruleRepo.findAll();
-    }
-}
+//     @Override
+//     public List<PolicyRule> getAllRules() {
+//         return ruleRepo.findAll();
+//     }
+// }
 
 
 
