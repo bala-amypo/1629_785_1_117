@@ -7,9 +7,7 @@ public interface ViolationRecordService {
 
     ViolationRecord logViolation(ViolationRecord record);
 
-    List<ViolationRecord> getViolationsByUser(Long userId);
+    List<ViolationRecord> getUnresolvedViolations();
 
     ViolationRecord markResolved(Long id);
-
-    List<ViolationRecord> getUnresolvedViolations();
 }
