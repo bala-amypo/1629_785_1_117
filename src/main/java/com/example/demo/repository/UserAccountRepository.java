@@ -31,13 +31,13 @@ public interface UserAccountRepository extends JpaRepository<UserAccount, Long> 
 
 
 
-package com.example.demo.repository;
+// package com.example.demo.repository;
 
-import com.example.demo.entity.*;
-import java.util.*;
+// import com.example.demo.entity.*;
+// import java.util.*;
 
-public interface UserAccountRepository {
-    UserAccount save(UserAccount u);
-    Optional<UserAccount> findById(Long id);
-    List<UserAccount> findAll();
-}
+// public interface UserAccountRepository {
+//     UserAccount save(UserAccount u);
+//     Optional<UserAccount> findById(Long id);
+//     List<UserAccount> findAll();
+// }
