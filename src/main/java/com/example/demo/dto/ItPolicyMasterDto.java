@@ -1,33 +1,33 @@
-package com.example.demo.dto;
+// package com.example.demo.dto;
 
-public class ItPolicyMasterDto {
+// public class ItPolicyMasterDto {
     
-    // Minimal fields (can add more later)
-    private String id;
-    private String name;
+//     // Minimal fields (can add more later)
+//     private String id;
+//     private String name;
 
-    // Constructors
-    public ItPolicyMasterDto() {}
+//     // Constructors
+//     public ItPolicyMasterDto() {}
 
-    public ItPolicyMasterDto(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+//     public ItPolicyMasterDto(String id, String name) {
+//         this.id = id;
+//         this.name = name;
+//     }
 
-    // Getters and Setters
-    public String getId() {
-        return id;
-    }
+//     // Getters and Setters
+//     public String getId() {
+//         return id;
+//     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+//     public void setId(String id) {
+//         this.id = id;
+//     }
 
-    public String getName() {
-        return name;
-    }
+//     public String getName() {
+//         return name;
+//     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-}
+//     public void setName(String name) {
+//         this.name = name;
+//     }
+// }

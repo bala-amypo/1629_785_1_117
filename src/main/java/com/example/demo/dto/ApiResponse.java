@@ -1,11 +1,11 @@
-// package com.example.demo.dto;
+package com.example.demo.dto;
 
-// import lombok.AllArgsConstructor;
-// import lombok.Getter;
-// import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-// @Getter @Setter @AllArgsConstructor
-// public class ApiResponse {
-//     private String message;
-//     private boolean success;
-// }
+@Getter @Setter @AllArgsConstructor
+public class ApiResponse {
+    private String message;
+    private boolean success;
+}
